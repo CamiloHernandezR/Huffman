@@ -15,9 +15,13 @@ namespace Huffman
         public Form1()
         {
             InitializeComponent();
+            txtCompresion.Enabled = false;
+            txtComprimido.Enabled = false;
+            TxtTam0.Enabled = false;
+            txtTamN.Enabled = false;
         }
 
-
+        int? tam0 = null, tamn = null;
         List<string> prop = new List<string>();
         List<nodo> nodos = new List<nodo>();
         List<informacion> info = new List<informacion>();
@@ -52,7 +56,11 @@ namespace Huffman
                     }
                 }
             }
-            MessageBox.Show("Mensaje encriptado " + mensaje);
+            tamn = mensaje.Length;
+           txtTamN.Text= mensaje.Length.ToString() + "   bits";
+            txtComprimido.Text = mensaje;
+            double compresion =Math.Round( Convert.ToDouble(tamn * 100) / Convert.ToDouble(tam0),3);
+            txtCompresion.Text = compresion.ToString() + " %";
         }
         public void calcular()
         {
@@ -71,6 +79,8 @@ namespace Huffman
                     caracteres.Add(let);
                 }
                 MessageBox.Show("antes " + caracteres.Count);
+                tam0 = caracteres.Count * 8;
+               TxtTam0.Text=tam0.ToString()+"  bits";
                 for (int x = 0; x < caracteres.Count; x++)
                 {
                     int con = 0;
