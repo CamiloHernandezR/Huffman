@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Huffman
             txtComprimido.Enabled = false;
             TxtTam0.Enabled = false;
             txtTamN.Enabled = false;
+            btnArchivo.Enabled = false;
         }
 
         int? tam0 = null, tamn = null;
@@ -187,7 +189,45 @@ namespace Huffman
             }
             
         }
-            private void codigo(int x, int y)
+
+        private void radArchivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radArchivo.Checked)
+            {
+                txtCadena.Enabled = false;
+                radEscribri.Checked = false;
+                btnArchivo.Enabled = true;
+            }
+            
+        }
+
+        private void radEscribri_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radEscribri.Checked)
+            {
+                txtCadena.Enabled = true;
+                radArchivo.Checked = false;
+                btnArchivo.Enabled = false;
+            }
+        }
+
+        private void btnArchivo_Click(object sender, EventArgs e)
+        {
+            openFile.Filter = "txt files (*.txt)|*txt";
+            openFile.InitialDirectory = "C:\\Users\\magnu\\git\\Huffman\\Huffman";
+
+            if (openFile.ShowDialog()==DialogResult.OK && openFile.ToString() != "")
+            {
+                string archivo = openFile.FileName;
+                if (File.Exists(archivo))
+                {
+                    txtCadena.Text = File.ReadAllText(archivo);
+                }
+            }
+
+        }
+
+        private void codigo(int x, int y)
         {
             info = info.OrderByDescending(o => o.Probabilidad).ToList();
 
