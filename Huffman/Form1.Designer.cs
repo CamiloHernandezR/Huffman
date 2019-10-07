@@ -34,6 +34,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProbabilidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,8 @@
             this.dtgProbabilidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Rep,
-            this.Column2});
+            this.Column2,
+            this.cod});
             this.dtgProbabilidades.Location = new System.Drawing.Point(24, 118);
             this.dtgProbabilidades.Name = "dtgProbabilidades";
             this.dtgProbabilidades.Size = new System.Drawing.Size(466, 264);
@@ -80,6 +82,11 @@
             // 
             this.Column2.HeaderText = "probabilidad";
             this.Column2.Name = "Column2";
+            // 
+            // cod
+            // 
+            this.cod.HeaderText = "codiga";
+            this.cod.Name = "cod";
             // 
             // Form1
             // 
@@ -105,6 +112,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rep;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod;
     }
 }
 
